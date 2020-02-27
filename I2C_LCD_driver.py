@@ -16,19 +16,19 @@ Made available under GNU GENERAL PUBLIC LICENSE
 """
 
 # i2c bus (0 -- original Pi, 1 -- Rev 2 Pi)
-I2CBUS = 0
+I2CBUS = 1
 
 # LCD Address
 #ADDRESS = 0x27
 
-import smbus
+import smbus2
 from time import sleep
 
 
 class i2c_device:
     def __init__(self, addr, port=I2CBUS):
         self.addr = addr
-        self.bus = smbus.SMBus(port)
+        self.bus = smbus2.SMBus(port)
 
     # Write a single command
     def write_cmd(self, cmd):
